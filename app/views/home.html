@@ -1,17 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CardapioFlex</title>
     <link rel="stylesheet" href="/cardapioflex/public/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #F8F9FA;
+            color: #343A40;
+        }
+        .hero {
+            background-color: #007BFF;
+            color: #FFFFFF;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 3rem;
+        }
+        .features, .testimonials {
+            padding: 50px 0;
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: #007BFF;
+        }
+        .testimonials {
+            background-color: #FFFFFF;
+        }
+        .testimonial-card {
+            border: none;
+            background-color: #F8F9FA;
+        }
+        .footer {
+            background-color: #343A40;
+            color: #FFFFFF;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="mt-5">Bem-vindo ao CardapioFlex!</h1>
-        <p>Gerencie seu cardápio digital de forma fácil e rápida.</p>
-        <a href="/cardapioflex/login" class="btn btn-primary">Comece Agora</a>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">CardapioFlex</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Recursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Depoimentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cardapioflex/login">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>Bem-vindo ao CardapioFlex!</h1>
+            <p>Seu cardápio digital, simples e ágil</p>
+            <a href="/cardapioflex/login" class="btn btn-light btn-lg">Comece Agora</a>
+        </div>
     </div>
+
+    <!-- Features Section -->
+    <div id="features" class="features">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <i class="fas fa-edit feature-icon"></i>
+                    <h3>Fácil Edição</h3>
+                    <p>Altere seu cardápio digital de forma rápida e intuitiva.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-bullhorn feature-icon"></i>
+                    <h3>Promoções Automatizadas</h3>
+                    <p>Automatize promoções e aumente suas vendas.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-utensils feature-icon"></i>
+                    <h3>Gestão de Disponibilidade</h3>
+                    <p>Gerencie a disponibilidade dos pratos em tempo real.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="text-center">O que nossos clientes dizem</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card testimonial-card">
+                        <div class="card-body">
+                            <p class="card-text">"O CardapioFlex transformou a forma como gerenciamos nosso cardápio. É simples e eficiente!"</p>
+                            <footer class="blockquote-footer">João Silva, Restaurante XYZ</footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card testimonial-card">
+                        <div class="card-body">
+                            <p class="card-text">"As promoções automatizadas aumentaram nossas vendas em 20%!"</p>
+                            <footer class="blockquote-footer">Maria Oliveira, Café ABC</footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card testimonial-card">
+                        <div class="card-body">
+                            <p class="card-text">"A gestão de disponibilidade é um diferencial incrível. Recomendo!"</p>
+                            <footer class="blockquote-footer">Carlos Souza, Bistrô 123</footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2024 CardapioFlex. Todos os direitos reservados.</p>
+        </div>
+    </div>
+
     <script src="/cardapioflex/public/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
