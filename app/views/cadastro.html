@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - CardapioFlex</title>
+    <title>Cadastro - CardapioFlex</title>
     <link rel="stylesheet" href="/cardapioflex/public/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -11,26 +11,26 @@
             background-color: #4a3f8d;
             color: #ffffff;
         }
-        .login-container {
+        .register-container {
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             padding: 30px;
             margin-top: 50px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
-        .login-header {
+        .register-header {
             text-align: center;
             margin-bottom: 30px;
         }
-        .login-form .form-control {
+        .register-form .form-control {
             background-color: rgba(255, 255, 255, 0.2);
             border: none;
             color: #ffffff;
         }
-        .login-form .form-control::placeholder {
+        .register-form .form-control::placeholder {
             color: rgba(255, 255, 255, 0.7);
         }
-        .login-btn {
+        .register-btn {
             background-color: #ffa500;
             border: none;
             width: 100%;
@@ -38,15 +38,15 @@
             font-weight: bold;
             transition: all 0.3s ease;
         }
-        .login-btn:hover {
+        .register-btn:hover {
             background-color: #ff8c00;
             transform: translateY(-2px);
         }
-        .signup-link {
+        .login-link {
             text-align: center;
             margin-top: 20px;
         }
-        .signup-link a {
+        .login-link a {
             color: #ffa500;
             text-decoration: none;
         }
@@ -57,22 +57,22 @@
             transform: translateY(-50%);
             color: rgba(255, 255, 255, 0.7);
         }
-        .alert {
-            text-align: center;
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-5">
-                <div class="login-container">
-                    <div class="login-header">
+                <div class="register-container">
+                    <div class="register-header">
                         <h2><i class="fas fa-utensils"></i> CardapioFlex</h2>
-                        <p>Descubra o poder do Cardápio Digital</p>
+                        <p>Crie sua conta e descubra o poder do Cardápio Digital</p>
                     </div>
-                    <form class="login-form" action="/cardapioflex/login" method="post">
+                    <form class="register-form" action="/cardapioflex/cadastro" method="post">
+                        <div class="mb-4 position-relative">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Seu nome" required>
+                            <i class="fas fa-user input-icon"></i>
+                        </div>
                         <div class="mb-4 position-relative">
                             <input type="email" class="form-control" id="email" name="email" placeholder="Seu e-mail" required>
                             <i class="fas fa-envelope input-icon"></i>
@@ -81,15 +81,10 @@
                             <input type="password" class="form-control" id="password" name="password" placeholder="Sua senha" required>
                             <i class="fas fa-lock input-icon"></i>
                         </div>
-                        <button type="submit" class="btn login-btn">Entrar</button>
+                        <button type="submit" class="btn register-btn">Cadastrar</button>
                     </form>
-                    <div class="signup-link">
-                        <p>Não tem uma conta? <a href="/cardapioflex/cadastro">Cadastre-se <i class="fas fa-user-plus"></i></a></p>
-                    </div>
-                    <div class="alert">
-                        <check if="{{ @error }}">
-                            <div class="alert alert-danger">{{ @error }}</div>
-                        </check>
+                    <div class="login-link">
+                        <p>Já tem uma conta? <a href="/cardapioflex/login">Faça login <i class="fas fa-sign-in-alt"></i></a></p>
                     </div>
                 </div>
             </div>
