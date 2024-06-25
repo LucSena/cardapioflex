@@ -1,6 +1,7 @@
 <?php namespace App\Controllers;
 
 use \DB\SQL\Mapper;
+
 class AuthController {
     function login($f3) {
         // Verifica se o usuário já está logado
@@ -8,6 +9,8 @@ class AuthController {
             $f3->reroute('/dashboard');
             return;
         }
+        // Inicializa a variável de erro
+        $f3->set('error', null);
         echo \Template::instance()->render('login.html');
     }
 
@@ -36,6 +39,8 @@ class AuthController {
             $f3->reroute('/dashboard');
             return;
         }
+        // Inicializa a variável de erro
+        $f3->set('error', null);
         echo \Template::instance()->render('cadastro.html');
     }
 

@@ -1,15 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - CardapioFlex</title>
     <link rel="stylesheet" href="/cardapioflex/public/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #4a3f8d;
+        }
+        .navbar-brand, .nav-link {
+            color: #ffffff !important;
+        }
+        .card {
+            margin-top: 20px;
+        }
+        .footer {
+            background-color: #4a3f8d;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="mt-5">Dashboard</h1>
-        <p>Bem-vindo ao painel de administração do CardapioFlex.</p>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">CardapioFlex</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cardápios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Promoções</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Itens de Cardápio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Configurações</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cardapioflex/logout">Sair</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Dashboard</h1>
+                <p>Bem-vindo ao painel de administração do CardapioFlex.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total de Cardápios</h5>
+                        <p class="card-text">{{ @totalCardapios }}</p>
+                        <a href="#" class="btn btn-primary">Ver todos</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Promoções Ativas</h5>
+                        <p class="card-text">{{ @promocoesAtivas }}</p>
+                        <a href="#" class="btn btn-primary">Ver todas</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Itens Indisponíveis</h5>
+                        <p class="card-text">{{ @itensIndisponiveis }}</p>
+                        <a href="#" class="btn btn-primary">Ver todos</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Configurações</h5>
+                        <p class="card-text">{{ @configuracoes }}</p>
+                        <a href="#" class="btn btn-primary">Ver configurações</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h3>Últimas Atividades</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Atividade</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <repeat group="{{ @atividades }}" value="{{ @atividade }}">
+                            <tr>
+                                <td>{{ @atividade.data }}</td>
+                                <td>{{ @atividade.descricao }}</td>
+                                <td><span class="badge badge-{{ @atividade.statusColor }}">{{ @atividade.status }}</span></td>
+                            </tr>
+                        </repeat>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 2024 CardapioFlex. Todos os direitos reservados.
     </div>
     <script src="/cardapioflex/public/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
