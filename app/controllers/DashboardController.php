@@ -11,6 +11,8 @@ class DashboardController {
             return;
         }
         
+        $f3->set('PAGE', 'dashboard');
+
         // Conecta ao banco de dados
         $db = $f3->get('DB');
         
