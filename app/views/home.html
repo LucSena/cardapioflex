@@ -4,110 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CardapioFlex</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #F8F9FA;
-            color: #343A40;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#3B3F8C',
+                        'secondary': '#FF9900',
+                    },
+                },
+            },
         }
-        .hero {
-            background-color: #3B3F8C;
-            color: #FFFFFF;
-            padding: 100px 0;
-            text-align: center;
-        }
-        .hero h1 {
-            font-family: 'Roboto', sans-serif;
-            font-size: 3rem;
-        }
-        .hero p {
-            font-size: 1.5rem;
-        }
-        .features, .testimonials {
-            padding: 50px 0;
-        }
-        .feature-icon {
-            font-size: 3rem;
-            color: #3B3F8C;
-        }
-        .testimonials {
-            background-color: #FFFFFF;
-        }
-        .testimonial-card {
-            border: none;
-            background-color: #cbcdce;
-        }
-        .footer {
-            background-color: #343A40;
-            color: #FFFFFF;
-            padding: 20px 0;
-            text-align: center;
-        }
-        .btn-primary-custom {
-            background-color: #FF9900;
-            border-color: #FF9900;
-        }
-        .btn-primary-custom:hover {
-            background-color: #E68A00;
-            border-color: #E68A00;
-        }
-        .navbar-light .navbar-nav .nav-link {
-            color: #3B3F8C;
-        }
-    </style>
+    </script>
 </head>
-<body>
+<body class="font-sans bg-gray-100 text-gray-800">
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">CardapioFlex</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#features">Recursos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#testimonials">Depoimentos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login">Login</a>
-                    </li>
-                </ul>
+    <nav class="bg-white shadow">
+        <div class="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
+            <div class="flex justify-between items-center">
+                <a class="text-xl font-bold text-primary" href="#">CardapioFlex</a>
+                <div class="md:hidden">
+                    <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
+                        <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                            <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="md:flex items-center hidden">
+                <a class="my-1 text-sm text-gray-700 font-medium hover:text-primary md:mx-4 md:my-0" href="#features">Recursos</a>
+                <a class="my-1 text-sm text-gray-700 font-medium hover:text-primary md:mx-4 md:my-0" href="#testimonials">Depoimentos</a>
+                <a class="my-1 text-sm text-gray-700 font-medium hover:text-primary md:mx-4 md:my-0" href="login">Login</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <div class="hero">
-        <div class="container">
-            <h1>Descubra o poder do Cardápio Digital com CardapioFlex</h1>
-            <p>Transforme a experiência de seus clientes com nosso sistema inovador de Cardápio Digital.</p>
-            <a href="cadastro" class="btn btn-primary-custom btn-lg">Começar agora</a>
+    <div class="bg-primary text-white py-20">
+        <div class="container mx-auto text-center px-6">
+            <h1 class="text-4xl font-bold mb-2">Descubra o poder do Cardápio Digital com CardapioFlex</h1>
+            <p class="text-xl mb-8">Transforme a experiência de seus clientes com nosso sistema inovador de Cardápio Digital.</p>
+            <a href="cadastro" class="bg-secondary hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full text-lg">Começar agora</a>
         </div>
     </div>
 
     <!-- Features Section -->
-    <div id="features" class="features">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <i class="fas fa-edit feature-icon"></i>
-                    <h3>Fácil Edição</h3>
+    <div id="features" class="py-16 bg-gray-200">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-1/3 text-center px-4 mb-8">
+                    <i class="fas fa-edit text-5xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Fácil Edição</h3>
                     <p>Altere seu cardápio digital de forma rápida e intuitiva.</p>
                 </div>
-                <div class="col-md-4">
-                    <i class="fas fa-bullhorn feature-icon"></i>
-                    <h3>Promoções Automatizadas</h3>
+                <div class="w-full md:w-1/3 text-center px-4 mb-8">
+                    <i class="fas fa-bullhorn text-5xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Promoções Automatizadas</h3>
                     <p>Automatize promoções e aumente suas vendas.</p>
                 </div>
-                <div class="col-md-4">
-                    <i class="fas fa-utensils feature-icon"></i>
-                    <h3>Gestão de Disponibilidade</h3>
+                <div class="w-full md:w-1/3 text-center px-4 mb-8">
+                    <i class="fas fa-utensils text-5xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Gestão de Disponibilidade</h3>
                     <p>Gerencie a disponibilidade dos pratos em tempo real.</p>
                 </div>
             </div>
@@ -115,32 +74,26 @@
     </div>
 
     <!-- Testimonials Section -->
-    <div id="testimonials" class="testimonials">
-        <div class="container">
-            <h2 class="text-center">O que nossos clientes dizem</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card testimonial-card">
-                        <div class="card-body">
-                            <p class="card-text">"O CardápioFlex transformou a forma como gerenciamos nosso cardápio!"</p>
-                            <footer class="blockquote-footer">João Silva, Restaurante XYZ</footer>
-                        </div>
+    <div id="testimonials" class="bg-white py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-semibold text-center mb-8">O que nossos clientes dizem</h2>
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <div class="bg-gray-200 rounded-lg p-6">
+                        <p class="mb-4">"O CardápioFlex transformou a forma como gerenciamos nosso cardápio!"</p>
+                        <p class="text-sm text-gray-600">João Silva, Restaurante XYZ</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card testimonial-card">
-                        <div class="card-body">
-                            <p class="card-text">"As promoções automatizadas aumentaram nossas vendas em 20%!"</p>
-                            <footer class="blockquote-footer">Maria Oliveira, Café ABC</footer>
-                        </div>
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <div class="bg-gray-200 rounded-lg p-6">
+                        <p class="mb-4">"As promoções automatizadas aumentaram nossas vendas em 20%!"</p>
+                        <p class="text-sm text-gray-600">Maria Oliveira, Café ABC</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card testimonial-card">
-                        <div class="card-body">
-                            <p class="card-text">"A gestão de disponibilidade é um diferencial incrível. Recomendo!"</p>
-                            <footer class="blockquote-footer">Carlos Souza, Bistrô 123</footer>
-                        </div>
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <div class="bg-gray-200 rounded-lg p-6">
+                        <p class="mb-4">"A gestão de disponibilidade é um diferencial incrível. Recomendo!"</p>
+                        <p class="text-sm text-gray-600">Carlos Souza, Bistrô 123</p>
                     </div>
                 </div>
             </div>
@@ -148,14 +101,10 @@
     </div>
 
     <!-- Footer -->
-    <div class="footer">
-        <div class="container">
+    <div class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
             <p>&copy; 2024 CardapioFlex. Todos os direitos reservados.</p>
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -4,92 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - CardapioFlex</title>
-    <link rel="stylesheet" href="/cardapioflex/public/bootstrap/css/bootstrap.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            background-color: #4a3f8d;
-            color: #ffffff;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#4a3f8d',
+                        'secondary': '#ffa500',
+                    },
+                },
+            },
         }
-        .register-container {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: 50px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-        }
-        .register-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .register-form .form-control {
-            background-color: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: #ffffff;
-        }
-        .register-form .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        .register-btn {
-            background-color: #ffa500;
-            border: none;
-            width: 100%;
-            padding: 10px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        .register-btn:hover {
-            background-color: #ff8c00;
-            transform: translateY(-2px);
-        }
-        .login-link {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .login-link a {
-            color: #ffa500;
-            text-decoration: none;
-        }
-        .input-icon {
-            position: absolute;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            color: rgba(255, 255, 255, 0.7);
-        }
-    </style>
+    </script>
 </head>
-<body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-5">
-                <div class="register-container">
-                    <div class="register-header">
-                        <h2><i class="fas fa-utensils"></i> CardapioFlex</h2>
-                        <p>Crie sua conta e descubra o poder do Cardápio Digital</p>
+<body class="bg-primary text-white">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-center items-center min-h-screen">
+            <div class="w-full max-w-md">
+                <div class="bg-white bg-opacity-10 rounded-lg shadow-lg p-8">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold mb-2"><i class="fas fa-utensils mr-2"></i> CardapioFlex</h2>
+                        <p class="text-gray-300">Crie sua conta e descubra o poder do Cardápio Digital</p>
                     </div>
-                    <form class="register-form" action="/cardapioflex/cadastro" method="post">
-                        <div class="mb-4 position-relative">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Seu nome" required>
-                            <i class="fas fa-user input-icon"></i>
+                    <form class="space-y-6" action="/cardapioflex/cadastro" method="post">
+                        <div class="relative">
+                            <input type="text" id="name" name="name" placeholder="Seu nome" required
+                                class="w-full bg-white bg-opacity-20 border-none text-white placeholder-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-secondary">
+                            <i class="fas fa-user absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-300"></i>
                         </div>
-                        <div class="mb-4 position-relative">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Seu e-mail" required>
-                            <i class="fas fa-envelope input-icon"></i>
+                        <div class="relative">
+                            <input type="email" id="email" name="email" placeholder="Seu e-mail" required
+                                class="w-full bg-white bg-opacity-20 border-none text-white placeholder-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-secondary">
+                            <i class="fas fa-envelope absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-300"></i>
                         </div>
-                        <div class="mb-4 position-relative">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Sua senha" required>
-                            <i class="fas fa-lock input-icon"></i>
+                        <div class="relative">
+                            <input type="password" id="password" name="password" placeholder="Sua senha" required
+                                class="w-full bg-white bg-opacity-20 border-none text-white placeholder-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-secondary">
+                            <i class="fas fa-lock absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-300"></i>
                         </div>
-                        <button type="submit" class="btn register-btn">Cadastrar</button>
+                        <button type="submit" 
+                            class="w-full bg-secondary hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 ease-in-out transform hover:-translate-y-1">
+                            Cadastrar
+                        </button>
                     </form>
-                    <div class="login-link">
-                        <p>Já tem uma conta? <a href="/cardapioflex/login">Faça login <i class="fas fa-sign-in-alt"></i></a></p>
+                    <div class="text-center mt-6">
+                        <p class="text-gray-300">Já tem uma conta? 
+                            <a href="/cardapioflex/login" class="text-secondary hover:underline">
+                                Faça login <i class="fas fa-sign-in-alt ml-1"></i>
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="/cardapioflex/public/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
