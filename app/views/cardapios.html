@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápios - CardapioFlex</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#4a3f8d',
+                        'secondary': '#7463e8',
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <include href="../components/nav.html" />
+
+    <div class="flex flex-col md:flex-row flex-grow">
+        <include href="../components/aside.html" />
+
+        <main class="flex-grow p-6">
+            <h1 class="text-2xl font-semibold mb-4">Cardápios</h1>
+            <p class="text-gray-600 mb-8">Essa é a tela para gerenciamento de cardápios. Aqui você pode visualizar informações sobre os cardápios cadastrados, criar novos cardápios, editar ou excluir cardápios existentes.</p>
+
+            <!-- Botão para adicionar novo cardápio -->
+            <div class="mb-4">
+                <a href="/cardapios/create" class="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition-colors duration-200">
+                    <i class="fas fa-plus mr-2"></i>Adicionar Novo Cardápio
+                </a>
+            </div>
+
+            <!-- Tabela de cardápios -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-semibold mb-4">Cardápios Cadastrados</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="px-4 py-2 text-left">Nome</th>
+                                <th class="px-4 py-2 text-left">Descrição</th>
+                                <th class="px-4 py-2 text-left">Criado em</th>
+                                <th class="px-4 py-2 text-left">Configurações</th>
+                                <th class="px-4 py-2 text-left">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <repeat group="{{ @cardapios }}" value="{{ @cardapio }}">
+                                <tr class="border-b">
+                                    <td class="px-4 py-2">{{ @cardapio.nome }}</td>
+                                    <td class="px-4 py-2">{{ @cardapio.descricao }}</td>
+                                    <td class="px-4 py-2">{{ @cardapio.criado_em }}</td>
+                                    <td class="px-4 py-2">
+                                        <div>
+                                            <span class="block">Cor Primária: {{ @cardapio.configuracao.cor_primaria }}</span>
+                                            <span class="block">Cor Secundária: {{ @cardapio.configuracao.cor_secundaria }}</span>
+                                            <span class="block">Cor Terciária: {{ @cardapio.configuracao.cor_terciaria }}</span>
+                                            <span class="block">Fonte: {{ @cardapio.configuracao.fonte }}</span>
+                                            <span class="block">Logotipo: <img src="{{ @cardapio.configuracao.logotipo }}" alt="Logotipo" class="inline-block h-8"></span>
+                                        </div>
+                                    </td>
+                                    <td class="px-4 py-2">
+                                        <a href="/cardapios/edit/{{ @cardapio.id }}" class="text-blue-500 hover:text-blue-700 mr-2">
+                                            <i class="fas fa-edit"></i> Editar
+                                        </a>
+                                        <a href="/cardapios/delete/{{ @cardapio.id }}" class="text-red-500 hover:text-red-700">
+                                            <i class="fas fa-trash"></i> Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                            </repeat>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Toggle do menu para dispositivos móveis
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
